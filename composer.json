@@ -1,0 +1,19 @@
+{
+    "name": "leeminkan/send-mail",
+    "authors": [
+        {
+            "name": "leeminkan",
+            "email": "16520950@gm.uit.edu.vn"
+        }
+    ],
+    "require": {
+        "pear/mail": "^1.4",
+        "pear/mail_mime": "^1.10",
+        "swiftmailer/swiftmailer": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "leeminkan\\SendMail\\": "src/"
+        }
+    }
+}
