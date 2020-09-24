@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Approve Result</title>
+    <style>
+        @font-face {
+            src: url('fonts/SVN-Aptima.ttf');
+            font-family: 'SVN'
+        }
+
+        .form-table { 
+            margin: 0 auto;
+            position: relative;
+            padding: 50px;
+        }
+
+        .form-logo-wrapper {
+            display: inline-block;
+            height: 160px;
+        }
+
+        .form-logo {
+            margin: 0 auto;
+            height: 100%;
+        }
+
+        .form-title {
+            text-align: center; 
+            font-weight: bold;
+            font-size: 24pt;
+            color: #002060;
+        }
+        
+
+        .form-sub-title {
+            text-align: center; 
+            font-size: 24pt;
+            color: #59CBE8;
+        }
+
+        .form-greeting {
+            font-size: 24pt;
+            color:  rgb(89,203,232);
+        }
+        
+
+        .form-footer {
+            margin-top: 20px;
+            padding-left: 10px;
+        }
+
+        .content-highlight {
+            color: rgb(255,127,50);
+            font-weight: bold;
+        }
+        
+        body { 
+            margin: 0;
+            font-family: 'SVN', "Times New Roman", Arial;
+            font-size: 12pt;
+            color: rgb(82,95,127);
+        }
+
+        .child-table-payment {           
+            width: 100%;
+            background-color: #E7FBFF;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .child-table-payment td{
+            width: 33%;
+            padding: 5px 0px;
+            text-align: center;
+        }
+
+        .child-table-summary {           
+            width: 100%;
+            background-color: #E7FBFF;
+            margin-top: 10px;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .child-table-summary td{
+            width: 50%;
+        }  
+
+        .summary {
+            margin-top: 20px;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+        
+        .line {
+            border-top: 1px solid black;
+        }
+
+        .color-blue {
+            color: #002060;
+        }
+
+        .color-blue-light {
+            color: #59CBE8;
+        }
+
+        .color-orange {
+            color: #FF7F32;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <table class="form-table" width="768px">
+            <tr>
+                <td style="text-align: center; padding: 0px;">
+                    <div class="form-logo-wrapper">
+                        <img class="form-logo" src="../assets/logo/form-logo.png">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-title">
+                        Receipt from Laziots
+                    </div>
+                    <div class="form-sub-title">
+                        Receipt #...........(order number)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="child-table-payment">
+                        <tr style="font-weight: bold;">
+                            <td>            
+                                <div class="color-blue">
+                                    AMOUNT PAID
+                                </div>
+                            </td>
+                            <td>            
+                                <div class="color-blue">
+                                    DATE PAID
+                                </div>
+                            </td>
+                            <td>            
+                                <div class="color-blue">
+                                    PAYMENT METHOD
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="color-orange">
+                                    xx.xxxVNĐ
+                                </div>
+                            </td>
+                            <td>
+                                <div class="color-orange">
+                                    September 7, 2020
+                                </div>
+                            </td>
+                            <td>
+                                <div class="color-orange">
+                                    Ngân lượng/ Visa/ Master
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <div class="color-blue summary">
+                            SUMMARY
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="child-table-summary">
+                        <tr>
+                            <td>
+                                <div class="color-orange" style="font-weight: bold;">
+                                    Charge for "Tên đường chạy" order no:
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="color-blue-light">
+                            <td>
+                                <div>
+                                    #......(order number) - Laziots
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    xx.xxxVNĐ
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="line"></div>
+                            </td>
+                        </tr>
+                        <tr style="font-weight: bold;">
+                            <td>
+                                <div class="color-blue">
+                                    Amount paid
+                                </div>
+                            </td>
+                            <td>
+                                <div class="color-orange">
+                                    xx.xxxVNĐ
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-footer">
+                        If you have any questions, contact us at <span class="content-highlight">support@laziots.com</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
