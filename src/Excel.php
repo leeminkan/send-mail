@@ -28,7 +28,7 @@ class Excel {
         $this->subject = $subject;
         return $this;
     }
-    
+
     public function setFrom($from) {
         $this->from = $from;
         return $this;
@@ -55,8 +55,8 @@ class Excel {
     }
 
     public function sendMail() {
-        if (!$this->subject && !$this->from && !$this->template&& !$this->source) {
-            throw new Exception("Please set subject, from, template, source");
+        if (!$this->subject && !$this->template && !$this->source) {
+            throw new Exception("Please set subject, template, source");
         }
 
         if (!isset($this->columnToParam[$this->columnReceiver])) {
@@ -64,8 +64,12 @@ class Excel {
         }
 
         $this->mailer->setSubject($this->subject)
-        ->setFrom($this->from)
         ->setTemplate($this->template);
+        
+        if ($this->from) {
+            $this->mailer
+            ->setFrom($this->from);
+        }
 
         $Reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
 
@@ -87,6 +91,7 @@ class Excel {
                     ->setParam($param)
                     ->send();
                 }
+                $param = [];
             }
         }
     }

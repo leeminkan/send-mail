@@ -7,7 +7,6 @@ use leeminkan\SendMail\Excel;
 $excel = new Excel();
 
 $excel->setSubject("Test Excel")
-->setFrom("student10c1thpt@gmail.com")
 ->setTemplate("approve-result-form-laziots")
 ->setSource("./src/data/data.xlsx")
 ->setColumnToParam([

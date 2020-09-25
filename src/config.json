@@ -1,6 +1,9 @@
 {
-    "host": "smtp.mailtrap.io",
-    "username": "364b6eb39cddd4",
-    "password": "7af10b3ab4a861",
-    "port": "2525"
+    "host": "smtp.sendgrid.net",
+    "username": "bsskhanh",
+    "password": "(beesight1",
+    "port": "587",
+    "encryption": "tls",
+    "from_name": "CXI",
+    "from_address": "noreply@beesightsoft.com"
 }

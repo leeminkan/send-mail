@@ -26,8 +26,17 @@ class SwiftMail {
         $this->username = isset($config["username"]) ? $config["username"] : "";
         $this->password = isset($config["password"]) ? $config["password"] : "";
         $this->encryption = isset($config["encryption"]) ? $config["encryption"] : "";
-
-        $this->from = isset($config["username"]) ? $config["username"] : "";
+        if (isset($config["from_address"])) {
+            if (isset($config["from_name"])) {
+                $this->from = [
+                    $config["from_address"] => $config["from_name"]
+                ];
+            } else {
+                $this->from = $config["from_address"];
+            }
+        } else {
+            $this->from = isset($config["username"]) ? $config["username"] : "";
+        }
     }
 
     public function setSubject($subject) {
@@ -67,7 +76,6 @@ class SwiftMail {
 
     function send() {
         try {
-            
             $transport = (new \Swift_SmtpTransport($this->host, $this->port))
             ->setUsername($this->username)
             ->setPassword($this->password);
