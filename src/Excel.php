@@ -28,6 +28,7 @@ class Excel {
         $this->subject = $subject;
         return $this;
     }
+    
     public function setFrom($from) {
         $this->from = $from;
         return $this;
@@ -48,12 +49,19 @@ class Excel {
         return $this;
     }
     
-    public function setColumnToParam($columnToParam = []) {
+    public function setColumnToParam($columnToParam) {
         $this->columnToParam = $columnToParam;
         return $this;
     }
 
     public function sendMail() {
+        if (!$this->subject && !$this->from && !$this->template&& !$this->source) {
+            throw new Exception("Please set subject, from, template, source");
+        }
+
+        if (!isset($this->columnToParam[$this->columnReceiver])) {
+            throw new Exception("Column Receiver is incorrect!");
+        }
 
         $this->mailer->setSubject($this->subject)
         ->setFrom($this->from)
@@ -65,10 +73,6 @@ class Excel {
         $excelSheet = $spreadSheet->getActiveSheet();
         $spreadSheetAry = $excelSheet->toArray();
         $sheetCount = count($spreadSheetAry);
-
-        if (!isset($this->columnToParam[$this->columnReceiver])) {
-            throw new Exception("Column Receiver is incorrect!");
-        }
 
         for ($i = 0; $i < $sheetCount; $i ++) {
             if ($i >= $this->startRow) {
