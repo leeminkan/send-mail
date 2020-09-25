@@ -10,7 +10,9 @@
         "pear/mail": "^1.4",
         "pear/mail_mime": "^1.10",
         "swiftmailer/swiftmailer": "^6.0",
-        "phpmailer/phpmailer": "^6.1"
+        "phpmailer/phpmailer": "^6.1",
+        "phpoffice/phpspreadsheet": "^1.8",
+        "shuchkin/simplexlsx": "^0.8.19"
     },
     "autoload": {
         "psr-4": {
