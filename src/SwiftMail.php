@@ -82,11 +82,14 @@ class SwiftMail {
             
             if ($this->template) {
                 $message->setContentType("text/html");
-                
-                $message->setBody($this->getContentTemplate());
-            } else {
-                $message->setBody($this->body);
-            }
+                $this->body = $this->getContentTemplate();
+                if ($this->param && is_array($this->param)) {
+                    $this->body = $this->findAndReplace($this->body, $this->param);
+                }
+            } 
+            
+            
+            $message->setBody($this->body);
 
             // Create the Mailer using your created Transport
             $mailer = new \Swift_Mailer($transport);

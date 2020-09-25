@@ -14,5 +14,16 @@ trait Util {
         
         return $config;
     }
+
+    function findAndReplace($content, $data) {
+        preg_match_all('/\[(\w*)\]/', $content, $matches);
+        if (isset($matches[1])) {
+            foreach ($matches[1] as $match) {
+                $replace = isset($data[$match]) ? $data[$match] : "";
+                $content = str_replace('[' . $match . ']', $replace, $content);
+            }
+        }
+        return $content;
+    }
 }
 ?>
