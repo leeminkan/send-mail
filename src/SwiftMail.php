@@ -77,8 +77,8 @@ class SwiftMail {
             }
             
             $message = (new \Swift_Message($this->subject))
-              ->setFrom([$this->from])
-              ->setTo([$this->to]);
+              ->setFrom($this->from)
+              ->setTo($this->to);
             
             if ($this->template) {
                 $message->setContentType("text/html");
