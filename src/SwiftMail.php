@@ -93,8 +93,7 @@ class SwiftMail {
 
             return  $mailer->send($message);
         } catch (\Exception $e) {
-            echo $e;
-            return false;
+            throw $e;
         }
     }
 }
