@@ -59,13 +59,9 @@ class Excel {
             throw new Exception("Please set subject, template, source");
         }
 
-        if (!isset($this->columnToParam[$this->columnReceiver])) {
-            throw new Exception("Column Receiver is incorrect!");
-        }
-
         $this->mailer->setSubject($this->subject)
         ->setTemplate($this->template);
-        
+
         if ($this->from) {
             $this->mailer
             ->setFrom($this->from);
@@ -80,18 +76,21 @@ class Excel {
 
         for ($i = 0; $i < $sheetCount; $i ++) {
             if ($i >= $this->startRow) {
-                foreach ($this->columnToParam as $key => $value) {
-                    if (isset($spreadSheetAry[$i][$key])) {
-                        $param[$value] = $spreadSheetAry[$i][$key];
+                if (isset($spreadSheetAry[$i][$this->columnReceiver]) && filter_var($spreadSheetAry[$i][$this->columnReceiver], FILTER_VALIDATE_EMAIL)) {
+                    $receiver = $spreadSheetAry[$i][$this->columnReceiver];
+
+                    foreach ($this->columnToParam as $key => $value) {
+                        if (isset($spreadSheetAry[$i][$key])) {
+                            $param[$value] = $spreadSheetAry[$i][$key];
+                        }
                     }
-                }
-                if (isset($param[$this->columnToParam[$this->columnReceiver]])) {
-                    $receiver = $param[$this->columnToParam[$this->columnReceiver]];
+
                     $this->mailer->setTo($receiver)
                     ->setParam($param)
                     ->send();
+
+                    $param = [];
                 }
-                $param = [];
             }
         }
     }

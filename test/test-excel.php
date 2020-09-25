@@ -10,7 +10,6 @@ $excel->setSubject("Test Excel")
 ->setTemplate("approve-result-form-laziots")
 ->setSource("./src/data/data.xlsx")
 ->setColumnToParam([
-    1 => "receiver",
     2 => "customer_name",
     3 => "completed_distance",
 ])
